@@ -71,9 +71,9 @@ endif
 ifeq ($(filter OMR1 O 8.1.0, $(PLATFORM_VERSION)), )
 USE_DISPLAY_SERVICE := true
 LOCAL_CFLAGS += -DUSE_DISPLAY_SERVICE
-LOCAL_CFLAGS += -std=c++11 -std=gnu++1y
+LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
 else
-LOCAL_CFLAGS += -std=c++11 -std=gnu++0x
+LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
 endif
 
 #HAL 1.0 Flags
@@ -116,6 +116,7 @@ LOCAL_C_INCLUDES += \
 LOCAL_SHARED_LIBRARIES := liblog libhardware libutils libcutils libdl libsync
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
+LOCAL_SHARED_LIBRARIES += libhidlbase libhwbinder libutils android.hardware.power@1.0
 ifeq ($(USE_DISPLAY_SERVICE),true)
 LOCAL_SHARED_LIBRARIES += android.frameworks.displayservice@1.0 android.hidl.base@1.0 libhidlbase
 else
