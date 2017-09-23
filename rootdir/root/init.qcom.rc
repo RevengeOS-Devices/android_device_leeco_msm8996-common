@@ -985,9 +985,9 @@ service hvdcp_opti /vendor/bin/hvdcp_opti
 
 service charger /charger
     class charger
-    group system graphics log
-    seclabel u:r:charger:s0
+    group log system graphics
     writepid /dev/cpuset/system-background/tasks
+    #seclabel u:r:charger:s0
 
 on charger
     start hvdcp_opti
