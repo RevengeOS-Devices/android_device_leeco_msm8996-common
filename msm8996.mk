@@ -284,7 +284,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service.gemini
+    android.hardware.power@1.2-service.leeco-libperfmgr
 
 # Qualcomm
 PRODUCT_COPY_FILES += \
