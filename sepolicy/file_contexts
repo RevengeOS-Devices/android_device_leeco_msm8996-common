@@ -10,6 +10,9 @@
 # persist
 /persist/rfs(/.*)?                                                       u:object_r:rfs_file:s0
 
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey                   u:object_r:hal_drm_clearkey_exec:s0
+
 # sysfs
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input2/0dbutton        u:object_r:touchpanel_file:s0
 
