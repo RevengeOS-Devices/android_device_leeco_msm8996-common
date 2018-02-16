@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Developed by andr68rus
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="batt"
+        android:title="@string/battery_settings_title" >
+
+        <SwitchPreference
+            android:key="qc_setting"
+            android:defaultValue="false"
+            android:title="@string/qc_title"
+            android:summary="@string/qc_summary" />
+
+	</PreferenceCategory>
+
+<!--	    <PreferenceCategory
+        android:key="akt_profile"
+        android:title="@string/akt_profile_title" >
+
+		<ListPreference
+			android:key="akt"
+			android:title="@string/akt_title"
+			android:summary="@string/akt_summary"
+			android:defaultValue="1"
+			android:entries="@array/akt_profiles"
+			android:entryValues="@array/akt_values"
+			android:dialogTitle="@string/akt_dialogTitle" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="camera_pref"
+        android:title="@string/camera_pref_title" >
+
+        <SwitchPreference
+            android:key="hal3"
+            android:defaultValue="false"
+            android:title="@string/hal3_title"
+            android:summary="@string/hal3_summary" />
+
+	</PreferenceCategory>
+-->
+</PreferenceScreen>
