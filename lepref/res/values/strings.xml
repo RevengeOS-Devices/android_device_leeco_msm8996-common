@@ -14,21 +14,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="lepref_title">Leeco Extras</string>
- 
+
     <!-- Battery -->
     <string name="battery_settings_title">Battery</string>
     <string name="qc_title">Quick Charge</string>
     <string name="qc_summary">Enable/disable quick charge settings</string>
-
-	<!-- AKT Profiles -->
-    <string name="akt_profile_title">AKT Profile</string>
-    <string name="akt_title">AKT Profile</string>
-    <string name="akt_summary">Choose your power saver profile</string>
-    <string name="akt_dialogTitle">Choose your power saver profile</string>
-	
-	<!-- Camera -->
-	<string name="camera_pref_title">Camera</string>
-    <string name="hal3_title">Camera 2 API</string>
-    <string name="hal3_summary">Enable/disable API2 mode for camera</string>
-
+    <string name="focusfix_settings_title">Camera</string>
+    <string name="focusf_title">Focus Fix</string>
+    <string name="focusf_summary">Enable/disable focus fix</string>
 </resources>

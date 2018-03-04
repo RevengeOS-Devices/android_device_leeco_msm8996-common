@@ -14,21 +14,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="lepref_title">乐视高级设置</string>
- 
+
     <!-- Battery -->
     <string name="battery_settings_title">电池</string>
     <string name="qc_title">快充</string>
     <string name="qc_summary">开启/关闭 快充</string>
-
-	<!-- AKT Profiles -->
-    <string name="akt_profile_title">AKT 配置</string>
-    <string name="akt_title">AKT 配置</string>
-    <string name="akt_summary">选择一个省电配置</string>
-    <string name="akt_dialogTitle">选择一个省电配置</string>
-	
-	<!-- Camera -->
-	<string name="camera_pref_title">相机</string>
-    <string name="hal3_title">Camera 2 API</string>
-    <string name="hal3_summary">开启/关闭相机的 API2 模式</string>
 
 </resources>

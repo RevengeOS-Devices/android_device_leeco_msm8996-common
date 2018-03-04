@@ -14,20 +14,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="lepref_title">Leeco Extras</string>
- 
+
     <!-- Battery -->
     <string name="battery_settings_title">Батарея</string>
     <string name="qc_title">Быстрая зарядка</string>
     <string name="qc_summary">Включение/выключение быстрой зарядки</string>
 
-    <!-- AKT Profiles -->
-    <string name="akt_profile_title">AKT профили</string>
-    <string name="akt_title">AKT профили</string>
-    <string name="akt_summary">Выбор AKT профиля</string>
-    <string name="akt_dialogTitle">Выберите нужный вам профиль</string>
-
-    <!-- Camera -->
-    <string name="camera_pref_title">Камера</string>
-    <string name="hal3_title">Camera 2 API</string>
-    <string name="hal3_summary">Вкл/выкл режима API2</string>
 </resources>
