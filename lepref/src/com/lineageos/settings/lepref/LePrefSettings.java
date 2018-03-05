@@ -33,11 +33,12 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final boolean DEBUG = false;
 	private static final String TAG = "LePref";
 	private static final String ENABLE_QC_KEY = "qc_setting";
-	private static final String ENABLE_FOCUS_FIX = "focusfix_setting"
+	private static final String ENABLE_FOCUS_FIX = "focusfix_setting";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 	private static final String FOCUSFIX_SYSTEM_PROPERTY = "persist.camera.focus_fix";
 
 	private SwitchPreference mEnableQC;
+	private SwitchPreference mEnableFocusFix;
 
     private Context mContext;
     private SharedPreferences mPreferences;
