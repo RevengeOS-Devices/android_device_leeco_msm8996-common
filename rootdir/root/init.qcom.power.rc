@@ -110,8 +110,7 @@ on init-cpus
     write /sys/devices/soc/soc:qcom,bcl/mode "enable"
 
     # Input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800 2:1324800"
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/input_boost_enabled 0
 
     # Setting b.L scheduler parameters
     write /proc/sys/kernel/sched_upmigrate 95
