@@ -3,10 +3,13 @@
 
 # data
 /data/vendor/qcam(/.*)?                                                  u:object_r:vendor_camera_data_file:s0
+/data/misc/perfd(/.*)?                                                   u:object_r:perfd_data_file:s0
+/data/system/perfd(/.*)?                                                 u:object_r:perfd_data_file:s0
 
 # executables
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.leeco_8996 u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/charger                                              u:object_r:vendor_charger_exec:s0
+/(vendor|system/vendor)/bin/perfd                                                u:object_r:perfd_exec:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey     u:object_r:hal_drm_clearkey_exec:s0
