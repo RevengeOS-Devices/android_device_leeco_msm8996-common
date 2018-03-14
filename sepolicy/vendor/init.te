@@ -16,3 +16,8 @@ allow init sysfs_scsi_devices_0000:dir relabelfrom;
 allow init sysfs_scsi_devices_0000:file relabelfrom;
 allow init sysfs_scsi_devices_other:dir relabelfrom;
 allow init sysfs_scsi_devices_other:file relabelfrom;
+
+allow init perfd:unix_stream_socket connectto;
+allow init perfd_data_file:sock_file write;
+allow init system_data_file:file { ioctl lock };
+#allow init vendor_file:file execute_no_trans;
