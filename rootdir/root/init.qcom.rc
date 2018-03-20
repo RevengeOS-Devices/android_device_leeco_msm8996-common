@@ -594,10 +594,10 @@ on boot
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     # end boot time fs tune
-    write /sys/block/sda/queue/read_ahead_kb 1024
-    write /sys/block/sda/queue/nr_requests 1024
-    write /sys/block/dm-0/queue/read_ahead_kb 1024
-    write /sys/block/dm-1/queue/read_ahead_kb 1024
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sda/queue/nr_requests 512
+    write /sys/block/dm-0/queue/read_ahead_kb 512
+    write /sys/block/dm-1/queue/read_ahead_kb 512
 
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
