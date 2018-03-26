@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Battery -->
+    <string name="lepref_title">Rozšíření LeEco</string>
+    <string name="battery_settings_title">Baterye</string>
+    <string name="qc_title">Rychlé nabíjení</string>
+    <string name="qc_summary">Zapnout/vypnout rychlé nabíjení</string>
+    
+    <!-- AKT Profiles -->
+    <string name="akt_profile_title">Profily AKT</string>
+    <string name="akt_title">Profily AKT</string>
+    <string name="akt_summary">Vyberte Váš profil úspory baterie</string>
+    <string name="akt_dialogTitle">Vyberte Váš profil úspory baterie</string>
+    
+    <!-- Camera -->
+    <string name="camera_pref_title">Fotoaparát</string>
+    <string name="hal3_title">Camera 2 API</string>
+    <string name="hal3_summary">Zapnout/vypnout API2 mód fotoaparátu</string>
+    
+</resources>
+
