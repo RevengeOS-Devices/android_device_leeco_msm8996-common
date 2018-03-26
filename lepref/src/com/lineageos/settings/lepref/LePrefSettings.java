@@ -35,7 +35,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final String ENABLE_QC_KEY = "qc_setting";
 //	private static final String ENABLE_HAL3_KEY = "hal3";
 	private static final String AKT_KEY = "akt";
-	private static final String ENABLE_FOCUS_FIX = "focusfix_setting"
+	private static final String ENABLE_FOCUS_FIX = "focusfix_setting";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 //	private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
 	private static final String AKT_SYSTEM_PROPERTY = "persist.AKT.profile";
@@ -43,6 +43,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private SwitchPreference mEnableQC;
 //	private SwitchPreference mEnableHAL3;
 	private ListPreference mAKT;
+	private SwitchPreference mEnableFocusFix;
 
     private Context mContext;
     private SharedPreferences mPreferences;
