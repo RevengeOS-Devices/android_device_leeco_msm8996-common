@@ -1,15 +1,5 @@
-# ssd
-/dev/block/sda1                                                          u:object_r:ssd_device:s0
-# modemst1
-/dev/block/sdf1                                                          u:object_r:modem_efs_partition_device:s0
-# modemst2
-/dev/block/sdf3                                                          u:object_r:modem_efs_partition_device:s0
-# fsc
-/dev/block/sdf5                                                          u:object_r:modem_efs_partition_device:s0
-# fsg
-/dev/block/sde7                                                          u:object_r:modem_efs_partition_device:s0
-# persist
-/dev/block/sda2                                                          u:object_r:persist_block_device:s0
+# Block devices
+/dev/block/platform/soc/624000.ufshc/by-name/persist                     u:object_r:persist_block_device:s0
 
 # data
 /data/vendor/nfc(/.*)?                                                   u:object_r:nfc_data_file:s0
@@ -38,3 +28,7 @@
 /system/bin/wcnss_filter                                                 u:object_r:wcnss_filter_exec:s0
 
 /data/misc/tloc(/.*)?                                                    u:object_r:tlocd_data_file:s0
+
+/sys/remote/enable                     u:object_r:sysfs_ir_enable:s0
+/dev/ttyHSL1                           u:object_r:consumer_ir_device:s0
+
