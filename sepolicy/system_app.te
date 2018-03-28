@@ -1,3 +1,6 @@
 allow system_app time_daemon:unix_stream_socket { connectto };
 
+# Viper audio support
+allow hal_audio_default hal_audio_default:process { execmem };
+
 get_prop(system_app, qemu_hw_mainkeys_prop)
