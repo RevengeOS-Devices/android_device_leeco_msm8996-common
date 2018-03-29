@@ -31,7 +31,6 @@
 
 	</PreferenceCategory>
 
-</PreferenceCategory>
   <PreferenceCategory
   android:key="focus"
   android:title="@string/focusfix_settings_title" >

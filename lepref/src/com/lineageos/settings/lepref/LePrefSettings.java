@@ -3,7 +3,7 @@
  *  Made by @andr68rus 2017
  */
 
-package com.cyanogenmod.settings.lepref;
+package com.lineageos.settings.lepref;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -39,6 +39,7 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
 //	private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
 	private static final String AKT_SYSTEM_PROPERTY = "persist.AKT.profile";
+	private static final String FOCUSFIX_SYSTEM_PROPERTY = "persist.camera.focus_fix";
 
 	private SwitchPreference mEnableQC;
 //	private SwitchPreference mEnableHAL3;
@@ -105,6 +106,8 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 			toast.show();
 		}
 		SystemProperties.set(AKT_SYSTEM_PROPERTY, value);
+    }
+
 		private void setEnableFocusFix(boolean value) {
 		if(value) {
 			SystemProperties.set(FOCUSFIX_SYSTEM_PROPERTY, "1");
