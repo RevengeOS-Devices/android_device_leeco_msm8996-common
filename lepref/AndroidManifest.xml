@@ -9,20 +9,20 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-sdk
-        android:minSdkVersion="24"
+        android:minSdkVersion="27"
         android:targetSdkVersion="27"/>
 
-    <application android:label="@string/lepref_title"
-        android:theme="@style/Theme.Settings"
+    <application
+        android:label="LePref"
         android:persistent="true">
 
         <activity
-            android:name=".LePrefSettings">
-          
+            android:name=".LePrefSettings"
+            android:label="@string/lepref_title"
+            android:theme="@android:style/Theme.Material.Settings">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
-    
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.device" />

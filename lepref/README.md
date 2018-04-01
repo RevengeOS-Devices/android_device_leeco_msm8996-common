@@ -1,7 +1,4 @@
 ####Leeco Extra Settings Module by @andr68rus
-
-Icon and Oreo styled by @kihope12
-
 #####Add following lines to your device tree mk file to add module:
 ```
   # LePref settigs modules

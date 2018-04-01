@@ -15,11 +15,11 @@
 
     <string name="lepref_title">Leeco Extras</string>
 
-    <!-- Battery -->
-    <string name="battery_settings_title">Battery</string>
-    <string name="qc_title">Quick Charge</string>
-    <string name="qc_summary">Enable/disable quick charge settings</string>
-    <string name="focusfix_settings_title">Camera</string>
-    <string name="focusf_title">Focus Fix</string>
-    <string name="focusf_summary">Enable/disable focus fix</string>
+    <!-- Bateria -->
+    <string name="battery_settings_title">Bateria</string>
+    <string name="qc_title">Carga rapida</string>
+    <string name="qc_summary">Activar o desactivar la carga rapida</string>
+    <string name="focusfix_settings_title">Camara</string>
+    <string name="focusf_title">Fix para el enfoque</string>
+    <string name="focusf_summary">Activar/desactivar el fix para el enfoque</string>
 </resources>
