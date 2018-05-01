@@ -4,4 +4,4 @@ type ifaa_data_file, file_type, data_file_type;
 type touchpanel_file, file_type, sysfs_type;
 
 type sysfs_ir_enable, fs_type, sysfs_type;
-
+type sysfs_livedisplay, sysfs_type, fs_type;

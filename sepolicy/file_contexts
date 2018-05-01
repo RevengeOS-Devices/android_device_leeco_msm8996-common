@@ -16,6 +16,10 @@
 # sysfs
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input2/0dbutton        u:object_r:touchpanel_file:s0
 
+# livedisplay
+/sys/devices/virtual/graphics/fb0/dci_p3                                 u:object_r:sysfs_livedisplay:s0
+/sys/devices/virtual/graphics/fb0/srgb                                   u:object_r:sysfs_livedisplay:s0
+
 # legacy
 /system/bin/ATFWD-daemon                                                 u:object_r:atfwd_exec:s0
 /system/bin/btnvtool                                                     u:object_r:btnvtool_exec:s0
