@@ -59,7 +59,7 @@ on init-cpus
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "85 950000:90 1450000:95 1650000:99"
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "90 950000:90 1450000:95 1650000:99"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 19000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 290000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 307200
@@ -70,11 +70,11 @@ on init-cpus
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_sched_load 1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/use_migration_notif 1
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000 2100000:790000"
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 195
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 165
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/hispeed_freq 1248000
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "85 1000000:90 1300000:70 1700000:95"
+    write /sys/devices/system/cpu/cpu2/cpufreq/interactive/target_loads "90 1000000:90 1300000:70 1700000:95"
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/min_sample_time 19000
     write /sys/devices/system/cpu/cpu2/cpufreq/interactive/max_freq_hysteresis 300000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 307200
