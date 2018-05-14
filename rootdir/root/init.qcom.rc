@@ -45,12 +45,6 @@ on init
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
 
-    # Disable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 0
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 0
-    write /sys/devices/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled Y
-
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
@@ -587,12 +581,6 @@ on property:sys.boot_completed=1
 
     # Enable hvdcp
     setprop persist.hvdcp.allow_opti 1
-
-    # Enable UFS powersaving
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
-    write /sys/devices/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
-    write /sys/module/lpm_levels/parameters/sleep_disabled N
 
 # start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
