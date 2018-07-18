@@ -19,13 +19,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
-# System properties
--include $(LOCAL_PATH)/system_prop.mk
-
-# Ramdisk
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/leeco/msm8996-common/rootdir/root,root)
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -68,9 +61,9 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/atmel_ts_key.kl:system/usr/keylayout/atmel_ts_key.kl \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
+    $(LOCAL_PATH)/keylayout/atmel_ts_key.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/atmel_ts_key.kl \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl
 
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -134,7 +127,10 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.device@1.0.so \
     camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-service \
+    camera.device@1.0-impl \
     camera.msm8996 \
     libshims_camera \
     libshims_qcamera-daemon \
@@ -147,6 +143,17 @@ PRODUCT_PACKAGES += \
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
+
+# Common init scripts
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.qcom.bt.sh \
+    init.qcom.power.rc \
+    init.qcom.usb.rc \
+    ueventd.qcom.rc
+
 
 # Display
 PRODUCT_PACKAGES += \
@@ -171,11 +178,25 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system
 
 PRODUCT_PACKAGES += \
+    vendor.display.color@1.0-service \
+    vendor.display.color@1.0-impl \
     vendor.display.config@1.1 \
     vendor.display.config@1.1_vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/FOSSConfig.xml:system/etc/FOSSConfig.xml
+
+# Healthd
+PRODUCT_PACKAGES += \
+    android.hardware.health@1.0-convert \
+    android.hardware.health@1.0-impl \
+    android.hardware.health@1.0-service
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0-java
 
 # Doze mode
 PRODUCT_PACKAGES += \
@@ -184,7 +205,8 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.0-service.widevine
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -222,20 +244,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-convert \
     android.hardware.health@1.0-service
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
-
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common
 
-# IPA Manager
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -250,7 +262,8 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -258,8 +271,8 @@ PRODUCT_PACKAGES += \
     lights.msm8996
 
 # LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm
+#RODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@1.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -345,13 +358,24 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8996.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8996.conf
+
+# Tetheroffload
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
+
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.smartselection.bundle1
 
 # Thermal
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8996.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8996.conf
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service \
+    thermal.msm8996
 
 # USB
 PRODUCT_PACKAGES += \
@@ -391,6 +415,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     kernel/leeco/msm8996/drivers/staging/qcacld-2.0/firmware_bin/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=adb \
+    ro.adb.secure=0
 
 # Model is set via init library
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
