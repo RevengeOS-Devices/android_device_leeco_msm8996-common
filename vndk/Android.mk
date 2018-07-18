@@ -1,6 +1,9 @@
 VNDK_SP_LIBRARIES := \
     android.hardware.graphics.allocator@2.0 \
     android.hardware.graphics.common@1.0 \
+    android.hardware.camera.device@1.0 \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4 \
     android.hardware.graphics.mapper@2.0 \
     android.hardware.renderscript@1.0 \
     android.hidl.memory@1.0 \
@@ -30,10 +33,36 @@ VNDK_SP_LIBRARIES := \
 EXTRA_VENDOR_LIBRARIES := \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0 \
-    vendor.display.color@1.0 \
-    vendor.display.config@1.0 \
-    vendor.qti.hardware.iop@1.0
+    android.hardware.camera.device@1.0 \
+    android.hardware.camera.device@3.2 \
+    android.hardware.camera.device@3.3 \
+    android.hardware.camera.provider@2.4 \
+    libcamera_metadata \
+    libfmq \
+    android.hardware.camera.common@1.0 \
+    android.hardware.configstore@1.0 \
+    android.hardware.configstore-utils \
+    android.hidl.allocator@1.0 \
+    android.hidl.memory@1.0 \
+    libbinder \
+    libui
 
+HW_VENDOR_LIBRARIES := \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    android.hardware.camera.device@1.0 \
+    android.hardware.camera.device@3.2 \
+    android.hardware.camera.device@3.3 \
+    android.hardware.camera.provider@2.4 \
+    libcamera_metadata \
+    libfmq \
+    android.hardware.camera.common@1.0 \
+    android.hardware.configstore@1.0 \
+    android.hardware.configstore-utils \
+    android.hidl.allocator@1.0 \
+    android.hidl.memory@1.0 \
+    libbinder \
+    libui
 
 #-------------------------------------------------------------------------------
 # VNDK Modules
@@ -78,6 +107,8 @@ $(foreach lib,$(VNDK_SP_EXT_LIBRARIES),\
     $(eval $(call define-vndk-lib,$(lib),vndk-sp-ext-gen,vndk-sp,true)))
 $(foreach lib,$(EXTRA_VENDOR_LIBRARIES),\
     $(eval $(call define-vndk-lib,$(lib),vndk-ext-gen,,true)))
+$(foreach lib,$(HW_VENDOR_LIBRARIES),\
+    $(eval $(call define-vndk-lib,$(lib),vndk-hw-gen,hw,true)))
 
 
 #-------------------------------------------------------------------------------
@@ -90,6 +121,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := \
     $(addsuffix .vndk-sp-gen,$(VNDK_SP_LIBRARIES)) \
     $(addsuffix .vndk-sp-ext-gen,$(VNDK_SP_EXT_LIBRARIES)) \
-    $(addsuffix .vndk-ext-gen,$(EXTRA_VENDOR_LIBRARIES))
+    $(addsuffix .vndk-ext-gen,$(EXTRA_VENDOR_LIBRARIES)) \
+    $(addsuffix .vndk-hw-gen,$(HW_VENDOR_LIBRARIES))
 include $(BUILD_PHONY_PACKAGE)
 
