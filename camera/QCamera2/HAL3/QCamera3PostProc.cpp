@@ -1223,7 +1223,42 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
     dst_dim.width = recvd_frame->reproc_config.output_stream_dim.width;
     dst_dim.height = recvd_frame->reproc_config.output_stream_dim.height;
 
+    cam_rect_t crop;
+    memset(&crop, 0, sizeof(cam_rect_t));
+    //TBD_later - Zoom event removed in stream
+    //main_stream->getCropInfo(crop);
+
+    // Set JPEG encode crop in reprocess frame metadata
+    // If this JPEG crop info exist, encoder should do cropping
+    IF_META_AVAILABLE(cam_stream_crop_info_t, jpeg_crop,
+            CAM_INTF_PARM_JPEG_ENCODE_CROP, metadata) {
+        memcpy(&crop, &(jpeg_crop->crop), sizeof(cam_rect_t));
+    }
+
+    // Set JPEG encode crop in reprocess frame metadata
+    // If this JPEG scale info exist, encoder should do scaling
+    IF_META_AVAILABLE(cam_dimension_t, scale_dim,
+            CAM_INTF_PARM_JPEG_SCALE_DIMENSION, metadata) {
+        if (scale_dim->width != 0 && scale_dim->height != 0) {
+            dst_dim.width = scale_dim->width;
+            dst_dim.height = scale_dim->height;
+        }
+    }
+
     needJpegExifRotation = (hal_obj->needJpegExifRotation() || !needsReprocess(recvd_frame));
+
+    // If EXIF rotation metadata is added and used to match the JPEG orientation,
+    // it means CPP rotation is not involved, whether it is because CPP does not
+    // support rotation, or the reprocessed frame is not sent to CPP.
+    // Override CAM_INTF_PARM_ROTATION to 0 to avoid wrong CPP rotation info
+    // to be filled in to JPEG metadata.
+    if (needJpegExifRotation) {
+        cam_rotation_info_t rotation_info;
+        memset(&rotation_info, 0, sizeof(rotation_info));
+        rotation_info.rotation = ROTATE_0;
+        rotation_info.streamId = 0;
+        ADD_SET_PARAM_ENTRY_TO_BATCH(metadata, CAM_INTF_PARM_ROTATION, rotation_info);
+    }
 
     LOGH("Need new session?:%d", needNewSess);
     if (needNewSess) {
@@ -1311,11 +1346,6 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
     jpg_job.encode_job.src_index = 0;
     jpg_job.encode_job.dst_index = 0;
 
-    cam_rect_t crop;
-    memset(&crop, 0, sizeof(cam_rect_t));
-    //TBD_later - Zoom event removed in stream
-    //main_stream->getCropInfo(crop);
-
     // Set main dim job parameters and handle rotation
     if (!needJpegExifRotation && (jpeg_settings->jpeg_orientation == 90 ||
             jpeg_settings->jpeg_orientation == 270)) {
@@ -1362,7 +1392,6 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
     // thumbnail dim
     LOGH("Thumbnail needed:%d", m_bThumbnailNeeded);
     if (m_bThumbnailNeeded == TRUE) {
-        memset(&crop, 0, sizeof(cam_rect_t));
         jpg_job.encode_job.thumb_dim.dst_dim =
                 jpeg_settings->thumbnail_size;
 
@@ -1374,9 +1403,18 @@ int32_t QCamera3PostProcessor::encodeFWKData(qcamera_hal3_jpeg_data_t *jpeg_job_
             jpg_job.encode_job.thumb_dim.dst_dim.width =
                     jpg_job.encode_job.thumb_dim.dst_dim.height;
             jpg_job.encode_job.thumb_dim.dst_dim.height = temp;
+
+            jpg_job.encode_job.thumb_dim.src_dim.width = src_dim.height;
+            jpg_job.encode_job.thumb_dim.src_dim.height = src_dim.width;
+
+            jpg_job.encode_job.thumb_dim.crop.width = crop.height;
+            jpg_job.encode_job.thumb_dim.crop.height = crop.width;
+            jpg_job.encode_job.thumb_dim.crop.left = crop.top;
+            jpg_job.encode_job.thumb_dim.crop.top = crop.left;
+        } else {
+            jpg_job.encode_job.thumb_dim.src_dim = src_dim;
+            jpg_job.encode_job.thumb_dim.crop = crop;
         }
-        jpg_job.encode_job.thumb_dim.src_dim = src_dim;
-        jpg_job.encode_job.thumb_dim.crop = crop;
         jpg_job.encode_job.thumb_index = 0;
     }
 
@@ -1613,6 +1651,13 @@ int32_t QCamera3PostProcessor::encodeData(qcamera_hal3_jpeg_data_t *jpeg_job_dat
             LOGH("Need EXIF JPEG ROTATION");
         }
     }
+
+    // Although in HAL3, legacy flip mode is not advertised
+    // default value of CAM_INTF_PARM_FLIP is still added here
+    // for jpge metadata
+    int32_t flipMode = 0; // no flip
+    ADD_SET_PARAM_ENTRY_TO_BATCH(metadata, CAM_INTF_PARM_FLIP, flipMode);
+
     LOGH("Need new session?:%d", needNewSess);
     if (needNewSess) {
         //creating a new session, so we must destroy the old one
@@ -1747,7 +1792,6 @@ int32_t QCamera3PostProcessor::encodeData(qcamera_hal3_jpeg_data_t *jpeg_job_dat
     // thumbnail dim
     LOGH("Thumbnail needed:%d", m_bThumbnailNeeded);
     if (m_bThumbnailNeeded == TRUE) {
-        memset(&crop, 0, sizeof(cam_rect_t));
         jpg_job.encode_job.thumb_dim.dst_dim =
                 jpeg_settings->thumbnail_size;
 
@@ -1763,10 +1807,15 @@ int32_t QCamera3PostProcessor::encodeData(qcamera_hal3_jpeg_data_t *jpeg_job_dat
 
             jpg_job.encode_job.thumb_dim.src_dim.width = src_dim.height;
             jpg_job.encode_job.thumb_dim.src_dim.height = src_dim.width;
+
+            jpg_job.encode_job.thumb_dim.crop.width = crop.height;
+            jpg_job.encode_job.thumb_dim.crop.height = crop.width;
+            jpg_job.encode_job.thumb_dim.crop.left = crop.top;
+            jpg_job.encode_job.thumb_dim.crop.top = crop.left;
         } else {
            jpg_job.encode_job.thumb_dim.src_dim = src_dim;
+           jpg_job.encode_job.thumb_dim.crop = crop;
         }
-        jpg_job.encode_job.thumb_dim.crop = crop;
         jpg_job.encode_job.thumb_index = main_frame->buf_idx;
         LOGI("Thumbnail idx = %d src w/h (%dx%d), dst w/h (%dx%d)",
                 jpg_job.encode_job.thumb_index,
