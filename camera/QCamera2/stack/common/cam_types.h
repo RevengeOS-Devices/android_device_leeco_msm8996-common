@@ -2164,13 +2164,8 @@ typedef enum {
     CAM_INTF_META_REPROCESS_FLAGS, /* 226 */
     /* Param of cropping information for JPEG encoder */
     CAM_INTF_PARM_JPEG_ENCODE_CROP,
-<<<<<<< HEAD
-=======
     /* Param of scaling information for JPEG encoder */
     CAM_INTF_PARM_JPEG_SCALE_DIMENSION,
-    /*Param for updating Quadra CFA mode */
-    CAM_INTF_PARM_QUADRA_CFA,
->>>>>>> 91a99ece... QCamera2: HAL3: Fix DDM metadata
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
 
