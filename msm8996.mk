@@ -166,7 +166,7 @@ PRODUCT_PACKAGES += \
     camera.msm8996 \
     libshims_camera \
     libshims_qcamera-daemon \
-    Snap
+    GoogleCamera
 
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
