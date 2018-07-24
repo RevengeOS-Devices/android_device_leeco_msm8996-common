@@ -152,8 +152,7 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.power.rc \
     init.qcom.usb.rc \
-    ueventd.qcom.rc \
-    init.aex.rc
+    ueventd.qcom.rc
 
 
 # Display
@@ -306,11 +305,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
-
-# LePref settigs modules
-PRODUCT_PACKAGES += \
-    LePref
-
 
 # Power
 PRODUCT_PACKAGES += \
