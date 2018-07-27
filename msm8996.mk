@@ -174,9 +174,6 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.1 \
     vendor.display.config@1.1_vendor
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/FOSSConfig.xml:system/etc/FOSSConfig.xml
-
 # Doze mode
 PRODUCT_PACKAGES += \
     Doze
@@ -216,12 +213,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
     $(LOCAL_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
-
-# Healthd
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-convert \
-    android.hardware.health@1.0-service
 
 # HIDL
 PRODUCT_PACKAGES += \
