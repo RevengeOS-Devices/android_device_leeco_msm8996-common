@@ -142,8 +142,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor
 
 # Connectivity Engine support (CNE)
-# PRODUCT_PACKAGES += \
-#     libcnefeatureconfig
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig
 
 # Healthd
 PRODUCT_PACKAGES += \
@@ -230,8 +230,8 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0-java
 
 # IMS
-# PRODUCT_PACKAGES += \
-#     ims-ext-common
+PRODUCT_PACKAGES += \
+    ims-ext-common
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -336,11 +336,11 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service
 
 # Telephony
-# PRODUCT_PACKAGES += \
-#     telephony-ext
+PRODUCT_PACKAGES += \
+    telephony-ext
 
-# PRODUCT_BOOT_JARS += \
-#     telephony-ext
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
