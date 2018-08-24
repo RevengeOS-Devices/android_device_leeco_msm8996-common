@@ -75,7 +75,6 @@ on fs
 
 on late-fs
     # boot time fs tune
-    write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/iosched/slice_idle 0
     write /sys/block/sda/queue/read_ahead_kb 2048
     write /sys/block/sda/queue/nr_requests 256
@@ -576,9 +575,7 @@ on boot
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed"
     # end boot time fs tune
-    write /sys/block/sda/queue/read_ahead_kb 512
-    write /sys/block/sda/queue/nr_requests 512
-    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sda/queue/read_ahead_kb 128
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
     # Enable ZRAM on boot_complete
