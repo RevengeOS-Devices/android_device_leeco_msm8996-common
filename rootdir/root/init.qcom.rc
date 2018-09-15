@@ -703,15 +703,6 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-service fossctl /system/bin/ppd foss:on
-    user system
-    group system graphics
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    start fossctl
-
 service tlocd /system/bin/tloc_daemon
     class late_start
     user system
