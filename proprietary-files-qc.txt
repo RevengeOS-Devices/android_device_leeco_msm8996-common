@@ -506,7 +506,7 @@ vendor/lib64/sensors.hal.tof.so|eb19aa40617e50bd1efcc88cee9f5b0af34e7f11
 vendor/lib64/sensors.oem.so|08c12372d3331ee43cc0a3f48b88f21e45324f29
 vendor/lib64/sensors.ssc.so
 
-# Thermal - Gemini 8.0.0/OPR1.170623.032/8.5.24
+# Thermal - Gemini 8.0.0/OPR1.170623.032/8.9.13
 vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
