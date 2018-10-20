@@ -118,7 +118,7 @@ on property:dev.bootcomplete=1
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/soc/${ro.boot.bootdevice}/${ro.boot.bootdevice}:ufs_variant/pm_qos_enable 1
 
-    write /sys/block/sda/queue/scheduler maple
+    write /sys/block/sda/queue/scheduler cfq
 
     # VM
     write /proc/sys/vm/dirty_background_ratio 20
