@@ -333,6 +333,9 @@
         <item>"/system/framework/boot-core-libart.vdex"</item>
     </string-array>
 
+    <!-- Whether to show VoLTE icon in the status bar -->
+    <bool name="config_display_volte">true</bool>
+
     <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
     <bool name="config_displayBlanksAfterDoze">true</bool>
 
