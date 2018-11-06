@@ -124,6 +124,12 @@ on property:dev.bootcomplete=1
     write /proc/sys/vm/swappiness 5
     write /proc/sys/vm/vfs_cache_pressure 60
 
+    # Set perfd properties
+    setprop sys.post_boot.parsed 1
+    
+    # Start perfd after all properties have been properly set
+    start perfd
+
     # Starting io prefetcher service
     start iop
 

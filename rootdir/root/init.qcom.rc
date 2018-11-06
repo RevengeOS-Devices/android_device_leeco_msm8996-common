@@ -590,13 +590,13 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     writepid /dev/cpuset/system-background/tasks
 
 # start up peripheral manager
-service per_mgr /vendor/bin/pm-service
+service per_mgr /system/vendor/bin/pm-service
     class late_start
     user system
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service per_proxy /vendor/bin/pm-proxy
+service per_proxy /system/vendor/bin/pm-proxy
     class late_start
     user system
     group system
@@ -609,13 +609,13 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service qseecomd /vendor/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
    class core
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service perfd /vendor/bin/perfd
+service perfd /system/vendor/bin/perfd
    class main
    user root
    group root readproc
@@ -623,7 +623,7 @@ service perfd /vendor/bin/perfd
    socket perfd seqpacket 0666 root system
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
+service thermal-engine /system/vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -633,25 +633,25 @@ service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/ven
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /vendor/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service adsprpcd /vendor/bin/adsprpcd
+service adsprpcd /system/vendor/bin/adsprpcd
    class main
    user media
    group media
 
-service imsqmidaemon /vendor/bin/imsqmidaemon
+service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
     writepid /dev/cpuset/system-background/tasks
 
-service imsdatadaemon /vendor/bin/imsdatadaemon
+service imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -662,13 +662,13 @@ service imsdatadaemon /vendor/bin/imsdatadaemon
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
+service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
    disabled
 
-service imsrcsservice /vendor/bin/imsrcsd
+service imsrcsservice /system/vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log
@@ -773,7 +773,7 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service cnd /vendor/bin/cnd
+service cnd /system/vendor/bin/cnd
     class main
     socket cnd stream 660 root inet
     group root wakelock
@@ -784,18 +784,18 @@ service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
     user system
     group system
 
-service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
+service irsc_util /system/vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
 
-service rmt_storage /vendor/bin/rmt_storage
+service rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     group root system wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service tftp_server /vendor/bin/tftp_server
+service tftp_server /system/vendor/bin/tftp_server
     class main
     user root
     writepid /dev/cpuset/system-background/tasks
@@ -870,7 +870,7 @@ on property:ro.data.large_tcp_window_size=true
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
@@ -900,7 +900,7 @@ service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
 on property:sys.shutdown.requested=*
 stop cnss-daemon
 
-service loc_launcher /vendor/bin/loc_launcher
+service loc_launcher /system/vendor/bin/loc_launcher
     # loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet diag wifi
@@ -910,7 +910,7 @@ on property:crypto.driver.load=1
     insmod /system/lib/modules/qce.ko
     insmod /system/lib/modules/qcedev.ko
 
-service atfwd /vendor/bin/ATFWD-daemon
+service atfwd /system/vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
@@ -920,13 +920,13 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service ril-daemon /vendor/bin/hw/rild
+service ril-daemon /system/vendor/bin/hw/rild
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock oem_2901 net_raw
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service ril-daemon2 /vendor/bin/hw/rild -c 2
+service ril-daemon2 /system/vendor/bin/hw/rild -c 2
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock oem_2901 net_raw
@@ -959,7 +959,7 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service hvdcp_opti /vendor/bin/hvdcp_opti
+service hvdcp_opti /system/vendor/bin/hvdcp_opti
     class main
     user root
     group root
