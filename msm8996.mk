@@ -171,7 +171,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    Doze
+    LeecoDoze
 
 # DRM
 PRODUCT_PACKAGES += \
