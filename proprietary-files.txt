@@ -572,6 +572,9 @@ vendor/lib64/libOmxVpp.so|1ed21ba8236c4cb6264d2474ad495ebe5df6ed1d
 vendor/lib64/libOmxWmaDec.so|b8251245e3f5109be57c12309c05336a17725076
 vendor/lib64/libvpplibrary.so|ce0466b9973660981c908aa77e98daf7822ce4e4
 
+# msm_irqbalance - from sailfish - PPR2.181005.003
+vendor/bin/msm_irqbalance|3f7a923d9d01dbfda40ebdfdd27a62167df69c13
+
 # Offline charger - from x2
 vendor/bin/charger|0a3861fd5b997337a40926e7ddb2829461cfded8
 
