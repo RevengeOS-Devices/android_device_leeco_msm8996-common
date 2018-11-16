@@ -492,6 +492,9 @@ vendor/lib/libOmxWmaDec.so|c1d071accf3eacd7c69e6d07765e14494754ff60
 vendor/lib/libvqzip.so|9cb3212b118b6626918850abc907c41d1b819ac4
 -vendor/lib64/libgpustats.so|7f884a3e4ddc6f7016120ab9aed952f1261e210f
 
+# msm_irqbalance - from sailfish - PPR2.181005.003
+vendor/bin/msm_irqbalance|3f7a923d9d01dbfda40ebdfdd27a62167df69c13
+
 # Perf from - from wahoo
 vendor/lib/libqti-perfd-client.so|f277daf9632b4d4c22a27abec2c4d0ccf776892d
 vendor/lib64/libqti-perfd-client.so|eaf678de5d7d0de194a263db1835b1f582452419
