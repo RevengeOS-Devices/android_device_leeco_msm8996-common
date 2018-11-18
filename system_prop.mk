@@ -226,8 +226,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level=ALL_ENABLE
-
-# Ultra deep sleep
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.pm.deep_idle=1 \
-    persist.pm.free_net=1
