@@ -309,13 +309,3 @@ fi
 cp /firmware/image/modem_pr/mbn_ota.txt /data/misc/radio/modem_config
 chown radio.radio /data/misc/radio/modem_config/mbn_ota.txt
 echo 1 > /data/misc/radio/copy_complete
-
-if [ ! -f /data/vendor/wifi/hostapd/hostapd.conf ]; then
-    cp /system/vendor/etc/wifi/hostapd.conf /data/vendor/wifi/hostapd/hostapd.conf
-    cp /system/vendor/etc/wifi/hostapd.accept /data/vendor/wifi/hostapd/hostapd.accept
-    cp /system/vendor/etc/wifi/hostapd.deny /data/vendor/wifi/hostapd/hostapd.deny
-    chmod 644 /data/vendor/wifi/hostapd/hostapd.conf
-    chmod 644 /data/vendor/wifi/hostapd/hostapd.accept
-    chmod 644 /data/vendor/wifi/hostapd/hostapd.deny
-fi
-
