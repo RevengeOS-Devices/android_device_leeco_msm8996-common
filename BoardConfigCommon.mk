@@ -44,8 +44,8 @@ TARGET_2ND_CPU_VARIANT := kryo
 
 TARGET_USES_64_BIT_BINDER := true
 
-# SDClang
-SDCLANG := true
+# Use Snapdragon LLVM Compiler if available
+TARGET_USE_SDCLANG := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
