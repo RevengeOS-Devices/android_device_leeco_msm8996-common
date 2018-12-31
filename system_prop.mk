@@ -131,29 +131,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=1 \
-    debug.gralloc.enable_fb_ubwc=1 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
-    persist.demo.hdmirotationlock=false \
-    persist.hwc.enable_vds=1 \
-    persist.sys.wfd.virtual=0 \
-    ro.persist.qcapb=1 \
-    sdm.debug.disable_rotator_split=1
-
-# Property to specify the number of frames to skip before setting hint
-PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.perf_hint_window=50
-
-# Disable Skip Validate
-PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.debug.disable_skip_validate=1
-
-# Display Properties as per treble compliance
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.gralloc.enable_fb_ubwc=1 \
-    vendor.display.disable_skip_validate=1 \
-    vendor.display.perf_hint_window=50
+   debug.egl.hw=1 \
+   debug.gralloc.enable_fb_ubwc=1 \
+   vendor.gralloc.disable_wb_ubwc=1 \
+   debug.sf.hw=1 \
+   dev.pm.dyn_samplingrate=1 \
+   persist.demo.hdmirotationlock=false \
+   persist.hwc.enable_vds=1 \
+   persist.debug.wfd.enable=1 \
+   persist.sys.wfd.virtual=0 \
+   persist.sys.wfd.nohdcp=1 \
+   ro.persist.qcapb=1 \
+   sdm.debug.disable_rotator_split=1 \
+   sdm.debug.disable_skip_validate=1 \
+   sdm.perf_hint_window=50
 
 # Property to enable display default color mode
 PRODUCT_PROPERTY_OVERRIDES += \
