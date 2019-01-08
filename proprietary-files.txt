@@ -521,9 +521,7 @@ vendor/lib64/hw/sound_trigger.primary.msm8996.so|d35bc552da96d2f0de10cebf39c9bb0
 vendor/lib64/vendor.qti.voiceprint@1.0.so|e68fb38066c46a7f2b5be0f9a11300e01ec74dee
 
 # Media - from daisy - 9/PKQ1.180917.001/V10.0.1.0.PDLMIFJ
-lib/libmmosal.so|37719ae5647ef6ec826d06b93e34e0b53c565529
 lib/vendor.qti.hardware.vpp@1.1.so|040738576bf1e8b5c11aaeec11871b393f5a3c60
-lib64/libmmosal.so|3d50c7ea56db9c3676be9d6e36e1030386ecdb02
 lib64/vendor.qti.hardware.vpp@1.1.so|8e39a979aac1aa7002ef4e50c74878177ee755f7
 -vendor/lib/libgpustats.so|83d8856717923ab389aecf17445e33fc21b90afc
 vendor/lib/libI420colorconvert.so|eed42cd41b14f8921d668eca1a798aae76cfebe1
@@ -537,7 +535,6 @@ vendor/lib/libOmxApeDec.so|60ae5d351b511ea25912ed8d95230893d51376da
 vendor/lib/libOmxApeDecSw.so|5a8bbc06b9cf680f1c5012660c82f37331559f77
 vendor/lib/libOmxEvrcDec.so|6a50e069ae8b769c7c97bf0398557112d105b183
 vendor/lib/libOmxQcelp13Dec.so|c094a365bd872d93e553d50fd65dc3d93ef1f486
-vendor/lib/libOmxVideoDSMode.so|e553e97cd36c23549d74231758fa061ea3bbd74b
 vendor/lib/libOmxVpp.so|48ef129f20bd75e060ad66feef8f4ebf4a1c899f
 vendor/lib/libOmxWmaDec.so|3fd1e369ccc027535eb5bc2be1f5fbea50049758
 vendor/lib/libvpplibrary.so|bb818a5b8d62c236963fc094d0c2627bc78c00ef
@@ -742,6 +739,56 @@ vendor/lib64/libthermalioctl.so|cc51f7347a5c04e478b0abd2efa39c5dbe63b9a5
 -vendor/app/TimeService/TimeService.apk|78109530538aa8fb533ad288c9d356c57481a10e
 vendor/bin/time_daemon|d67f1c50583b5efca0f5baea00a51056a798b7f8
 vendor/lib64/libtime_genoff.so|8f4c1f9ace6af463b241b130d6872b5d39cc7b2a
+
+# Wi-Fi Display
+bin/wfdservice
+etc/init/wfdservice.rc
+etc/wfdconfig.xml
+etc/wfdconfigsink.xml
+-framework/WfdCommon.jar
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib/extractors/libmmparser.so
+lib/libFileMux.so
+lib/libOmxMux.so
+lib/libmmosal.so
+lib/libmmparser_lite.so
+lib/libmmrtpdecoder.so
+lib/libmmrtpencoder.so
+lib/libnl.so
+lib64/libnl.so
+lib/libaacwrapper.so
+lib/libwfdavenhancements.so
+lib/libwfdclient.so
+lib/libwfdcodecv4l2.so
+lib/libwfdcommonutils.so
+lib/libwfdconfigutils.so
+lib/libwfdmminterface.so
+lib/libwfdmmsink.so
+lib/libwfdmmsrc.so
+lib/libwfdnative.so
+lib/libwfdrtsp.so
+lib/libwfdservice.so
+lib/libwfdsm.so
+lib/libwfduibcinterface.so
+lib/libwfduibcsink.so
+lib/libwfduibcsinkinterface.so
+lib/libwfduibcsrc.so
+lib/libwfduibcsrcinterface.so
+lib64/libmmosal.so
+lib64/libwfdclient.so
+lib64/libwfdnative.so
+-priv-app/WfdService/WfdService.apk
+vendor/bin/wifidisplayhalservice
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+vendor/lib/libOmxVideoDSMode.so
+vendor/lib/libmmosal_proprietary.so
+vendor/lib/libwfdcommonutils_proprietary.so
+vendor/lib/libwfdhaldsmanager.so
+vendor/lib/libwfdhdcpcp.so
+vendor/lib/libwfdmmservice.so
+vendor/lib/libwfdmodulehdcpsession.so
 
 # Wi-Fi - Gemini 8.0.0/OPR1.170623.032/8.5.24
 vendor/bin/cnss-daemon
