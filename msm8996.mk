@@ -158,8 +158,8 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libtinyxml \
-    libqdMetaData \
-    libqdMetaData.system
+    libqdMetaData.system \
+    libvulkan
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.1 \
@@ -372,7 +372,7 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package
 
 # VR
 PRODUCT_PACKAGES += \

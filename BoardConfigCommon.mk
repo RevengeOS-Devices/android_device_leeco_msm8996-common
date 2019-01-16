@@ -231,6 +231,9 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+BOARD_VNDK_RUNTIME_DISABLE := true
+BOARD_VNDK_VERSION := current
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
@@ -246,3 +249,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 -include vendor/leeco/msm8996-common/BoardConfigVendor.mk
+
