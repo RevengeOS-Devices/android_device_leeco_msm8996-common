@@ -70,6 +70,30 @@ function blob_fixup() {
 	vendor/lib/libaudcal.so | vendor/lib64/libaudcal.so)
 		sed -i -e 's|\/data\/vendor\/misc\/audio\/acdbdata\/delta\/|\/data\/vendor\/audio\/acdbdata\/delta\/\x00\x00\x00\x00\x00|g' "${2}"
 		;;
+
+	# Patch blobs for VNDK
+	vendor/lib/libmmcamera2_stats_modules.so)
+		sed -i "s|libgui.so|libfui.so|g" "${2}"
+		sed -i "s|/data/misc/camera|/data/vendor/qcam|g" "${2}"
+		sed -i "s|libandroid.so|libcamshims.so|g" "${2}"
+		;;
+
+	vendor/lib/libmmcamera_ppeiscore.so | vendor/lib/libcamera_letv_algo.so)
+		sed -i "s|libgui.so|libfui.so|g" "${2}"
+		;;
+
+	vendor/lib/libarcsoft_hdr_detection.so | vendor/lib/libmpbase.so | vendor/lib/libarcsoft_panorama_burstcapture.so | vendor/lib/libarcsoft_smart_denoise.so | vendor/lib/libarcsoft_nighthawk.so | vendor/lib/libarcsoft_hdr.so | vendor/lib/libarcsoft_night_shot.so)
+		patchelf --remove-needed "libandroid.so" "${2}"
+		;;
+
+	vendor/lib/libletv_algo_jni.so)
+		sed -i "s|libgui.so|libfui.so|g" "${2}"
+		patchelf --remove-needed "libandroid_runtime.so" "${2}"
+		;;
+
+	vendor/lib64/lib-dplmedia.so)
+		patchelf --remove-needed "libmedia.so" "${2}"
+		;;
 	esac
 }
 
