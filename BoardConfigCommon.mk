@@ -232,14 +232,11 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity /dev/sde19\"
 
 # Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_COPY_OUT_VENDOR := vendor
-
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
-BOARD_VNDK_RUNTIME_DISABLE := true
-BOARD_VNDK_VERSION := current
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
