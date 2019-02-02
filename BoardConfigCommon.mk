@@ -223,6 +223,8 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/private
 
 # System as root
 BOARD_ROOT_EXTRA_FOLDERS := persist
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity /dev/sde19\"
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
