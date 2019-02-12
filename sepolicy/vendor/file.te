@@ -18,6 +18,9 @@ type sysfs_mods_camd, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_v4l2_openmode, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_batt_mods, fs_type, sysfs_type, mlstrustedobject;
 
+type sysfs_ir_enable, fs_type, sysfs_type;
+type consumer_ir_device, dev_type;
+
 type sysfs_soc, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_perf, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
