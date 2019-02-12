@@ -468,6 +468,10 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|776501883a6bf1b3e8fd33c0da5ec1eb742
 # Keystore - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib64/hw/keystore.msm8996.so|e4139ac911fd0aafa73bd2901ab273c04c99ccc9
 
+# LeRemote - from le_x10 (x850) - 7.1.1/LEXCNFN6061705181T/letv05181516
+-vendor/app/LetvRemoteControl_preinstall/LetvRemoteControl_preinstall.apk|d8f0eaf178fba342139596b5e6516a2fdcd60347
+-vendor/app/UEIQuicksetSDKLeTV/UEIQuicksetSDKLeTV.apk|5f277e31c08585ca8e79f7fda0957bd577c99c7d
+
 # Media - from LA.UM.8.6.r1-01900-89xx.0
 -vendor/lib/libgpustats.so|e1ffdfcdd7c03b9fb9de7b95e76541780ec34a1e
 vendor/lib/libI420colorconvert.so|309927237aa3e17ae4294a5012df293a03f93121

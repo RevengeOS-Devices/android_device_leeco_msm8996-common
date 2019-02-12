@@ -1,0 +1,3 @@
+#neverallow
+#allow hal_memtrack_default debugfs:file read;
+

@@ -1,0 +1,5 @@
+on boot
+    # IR
+    chmod 666 /dev/remote/name
+    chmod 666 /sys/remote/enable
+    chmod 666 /dev/ttyHSL1
