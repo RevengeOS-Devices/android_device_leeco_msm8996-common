@@ -482,6 +482,10 @@ vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 # Keystore - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib64/hw/keystore.msm8996.so|e4139ac911fd0aafa73bd2901ab273c04c99ccc9
 
+# LeRemote - from le_x10 (x850) - 7.1.1/LEXCNFN6061705181T/letv05181516
+-vendor/app/LetvRemoteControl_preinstall/LetvRemoteControl_preinstall.apk|d8f0eaf178fba342139596b5e6516a2fdcd60347
+-vendor/app/UEIQuicksetSDKLeTV/UEIQuicksetSDKLeTV.apk|5f277e31c08585ca8e79f7fda0957bd577c99c7d
+
 # Media - from LA.UM.7.5.r1-04800-8x96.0
 vendor/lib64/libgpustats.so|1a091475fb4a744f091bec101a51044fb8854a15
 vendor/lib/libgpustats.so|83d8856717923ab389aecf17445e33fc21b90afc
