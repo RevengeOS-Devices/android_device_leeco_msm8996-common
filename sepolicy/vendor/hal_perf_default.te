@@ -1,3 +1,2 @@
 # FIXME
 dontaudit hal_perf_default self:capability { dac_override };
-allow hal_perf_default freq_prop:property_service set;
