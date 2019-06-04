@@ -92,8 +92,8 @@ on enable-low-power
     # Enable all LPMs (this will enable C4, D4, D3, E4 and M3 LPMs)
     write /sys/module/lpm_levels/parameters/sleep_disabled "N"
 
-    # Set perfd properties
-    setprop vendor.post_boot.parsed 1
+    # Set PowerHal properties
+    setprop sys.post_boot.parsed 1
 
     # UFS health
     chmod 755 /sys/kernel/debug/ufshcd0
