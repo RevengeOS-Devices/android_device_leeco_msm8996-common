@@ -9,7 +9,6 @@ allow init consumer_ir_device:file relabelto;
 allow init system_data_file:file { ioctl lock };
 # symlink /sdcard to backing block
 allow init tmpfs:lnk_file create;
-allow init proc_kernel_sched:file w_file_perms;
 allow init sysfs_type:lnk_file read;
 allow init firmware_file:dir mounton;
 allow init persist_file:dir mounton;
