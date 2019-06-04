@@ -1,0 +1,2 @@
+allow msm_irqbalanced proc_irq:file { open read write getattr };
+allow msm_irqbalanced proc_irq:dir { search };
