@@ -25,8 +25,6 @@
 #include <hidl/Status.h>
 #include <perfmgr/HintManager.h>
 
-#include "InteractionHandler.h"
-
 namespace android {
 namespace hardware {
 namespace power {
@@ -37,7 +35,6 @@ using ::android::hardware::power::V1_0::Feature;
 using ::android::hardware::power::V1_2::IPower;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::InteractionHandler;
 using PowerHint_1_0 = ::android::hardware::power::V1_0::PowerHint;
 using PowerHint_1_2 = ::android::hardware::power::V1_2::PowerHint;
 using ::android::perfmgr::HintManager;
@@ -67,7 +64,6 @@ struct Power : public IPower {
     static bool isSupportedGovernor();
 
     std::shared_ptr<HintManager> mHintManager;
-    std::unique_ptr<InteractionHandler> mInteractionHandler;
     std::atomic<bool> mSustainedPerfModeOn;
     std::atomic<bool> mReady;
     std::thread mInitThread;

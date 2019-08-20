@@ -48,7 +48,6 @@ using ::android::hardware::Void;
 
 Power::Power() :
         mHintManager(nullptr),
-        mInteractionHandler(nullptr),
         mSustainedPerfModeOn(false),
         mReady(false) {
 
@@ -56,8 +55,6 @@ Power::Power() :
             std::thread([this](){
                             android::base::WaitForProperty(kPowerHalInitProp, "1");
                             mHintManager = HintManager::GetFromJSON("/vendor/etc/powerhint.json");
-                            mInteractionHandler = std::make_unique<InteractionHandler>(mHintManager);
-                            mInteractionHandler->Init();
                             // Now start to take powerhint
                             mReady.store(true);
                         });
@@ -75,13 +72,6 @@ Return<void> Power::powerHint(PowerHint_1_0 hint, int32_t data) {
     }
 
     switch(hint) {
-        case PowerHint_1_0::INTERACTION:
-            if (mSustainedPerfModeOn) {
-                break;
-            }
-
-            mInteractionHandler->Acquire(data);
-            break;
         case PowerHint_1_0::SUSTAINED_PERFORMANCE:
             if (data && mSustainedPerfModeOn) {
                 break;
