@@ -24,7 +24,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE := android.hardware.power@1.2-service.leeco-libperfmgr
 LOCAL_INIT_RC := android.hardware.power@1.2-service.leeco-libperfmgr.rc
-LOCAL_SRC_FILES := service.cpp Power.cpp InteractionHandler.cpp power-helper.c
+LOCAL_SRC_FILES := service.cpp Power.cpp power-helper.c
 
 ifeq ($(TARGET_HAS_NO_WLAN_STATS),true)
 LOCAL_CFLAGS += -DNO_WLAN_STATS
