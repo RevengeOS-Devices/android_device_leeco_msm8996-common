@@ -20,6 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.audio.sdk.ssr=false \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
+    vendor.audio.feature.a2dp_offload.enable=false \
     vendor.audio.flac.sw.decoder.24bit=true \
     vendor.audio_hal.period_size=192 \
     vendor.audio.hw.aac.encoder=true \
