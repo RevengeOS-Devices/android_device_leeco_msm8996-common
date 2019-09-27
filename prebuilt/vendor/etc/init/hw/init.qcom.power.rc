@@ -71,6 +71,10 @@ on charger
     start thermal-engine
     start vendor.power_off_alarm
 
+    # Set runtime stune value
+    write /dev/stune/schedtune.prefer_idle 0
+    write /dev/stune/schedtune.boost 0
+
 on enable-low-power
     # Disable thermal hotplug to switch governor
     write /sys/module/msm_thermal/core_control/enabled 0
