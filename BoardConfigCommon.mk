@@ -224,8 +224,6 @@ VENDOR_SECURITY_PATCH := 2016-10-01
 
 # System as root
 BOARD_ROOT_EXTRA_FOLDERS := persist
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity /dev/sde19\"
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
