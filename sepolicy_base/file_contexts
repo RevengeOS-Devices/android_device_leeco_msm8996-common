@@ -1,2 +1,0 @@
-# Files in rootfs
-/persist(/.*)?           u:object_r:persist_file:s0
