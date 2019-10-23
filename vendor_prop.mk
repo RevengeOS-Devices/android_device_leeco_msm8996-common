@@ -50,12 +50,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.emb_wp_mode=true \
     vendor.qcom.bluetooth.soc=rome
 
-# Property for vendor specific library
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.gt_library=libqti-gt.so \
-    ro.vendor.at_library=libqti-at.so \
-    sys.games.gt.prof=1
-
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.HAL3.enabled=1 \
@@ -112,8 +106,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
-    vendor.display.perf_hint_window=50 \
-    vendor.gralloc.disable_wb_ubwc=1 \
+    vendor.display.perf_hint_window=50
 
 # Graphics (OpenGLES)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -135,8 +128,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.vendor.extension_library=libqti-perfd-client.so \
-   ro.vendor.qti.sys.fw.bg_apps_limit=60
+   ro.vendor.extension_library=libqti-perfd-client.so
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
