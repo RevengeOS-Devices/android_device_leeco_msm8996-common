@@ -45,9 +45,6 @@ on init
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    # Init device specific props
-    start vendor.init_leeco_msm8996_sh
-
     # Start qseecomd early as we mount /system early
     # vold needs keymaster which needs qseecomd
     start vendor.qseecomd
@@ -810,12 +807,6 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
     disabled
-    oneshot
-
-service vendor.init_leeco_msm8996_sh /vendor/bin/init.leeco.msm8996.sh
-    class core
-    user root
-    group root
     oneshot
 
 service qcom-sh /vendor/bin/init.qcom.sh
