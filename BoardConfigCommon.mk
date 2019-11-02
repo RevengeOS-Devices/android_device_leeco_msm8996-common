@@ -167,6 +167,10 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(PLATFORM_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_leeco_msm8996
+TARGET_RECOVERY_DEVICE_MODULES := libinit_leeco_msm8996
+
 # Partitions (/proc/partitions * 2 * BLOCK_SIZE (512) = size in bytes)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
