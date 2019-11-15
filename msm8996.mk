@@ -342,10 +342,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# Shims
-PRODUCT_PACKAGES += \
-    libui_shim
-
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     device/leeco/msm8996-common
