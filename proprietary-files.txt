@@ -697,6 +697,7 @@ lib64/libwfdnative.so|e109284a91ad1eb6b64b29b78ae5130c3d73e60e
 vendor/bin/wifidisplayhalservice|bed57178829239424fba0b72aa7e7015c28b537f
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|04e463342cbba4c0e9c311a18238f95dec9359fd
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so|fc8032723f50a9f9dbe374bf5a90cba17164ec58
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so|93487a83a35f0fa3fe37445edd3ff22fcc52e4fc
 vendor/lib/libmmosal_proprietary.so|4b0788590e1ecfccd3b20b3181a4add528acb2b6
 vendor/lib/libwfdcommonutils_proprietary.so|ada475df4455ca3bfa0299eac71e96df92630d49
 vendor/lib/libwfdhaldsmanager.so|6036d200d0a9aed7df3f49513ffd027822b6195c
