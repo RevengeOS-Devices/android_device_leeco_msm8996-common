@@ -174,6 +174,9 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 
 TARGET_USES_MKE2FS := true
 
+# Power
+TARGET_HAS_NO_WLAN_STATS := true
+
 # Recovery
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_leeco
 
