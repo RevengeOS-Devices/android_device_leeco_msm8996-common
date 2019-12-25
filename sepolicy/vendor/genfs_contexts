@@ -41,6 +41,9 @@ genfscon sysfs /devices/soc/6a00000.ssusb/6a00000.dwc3/gadget/lun0/     u:object
 genfscon proc /touchpanel                                               u:object_r:proc_touchpanel:s0
 
 # debugfs
+genfscon debugfs /rpm_stats                           u:object_r:debugfs_rpm:s0
+genfscon debugfs /rpm_master_stats                    u:object_r:debugfs_rpm:s0
+genfscon debugfs /system_stats                        u:object_r:debugfs_rpm:s0
 genfscon debugfs /ufshcd0                  u:object_r:debugfs_ufs:s0
 
 genfscon proc /sys/kernel/sched_boost                u:object_r:proc_kernel_sched:s0
