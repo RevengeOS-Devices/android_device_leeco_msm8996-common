@@ -28,4 +28,5 @@ cc_binary {
         "libutils",
         "android.hardware.ir@1.0",
     ],
+    proprietary: true,
 }

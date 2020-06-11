@@ -20,7 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
-import org.lineageos.consumerirtransmitter.utils.Log;
+import android.util.Log;
 import org.lineageos.consumerirtransmitter.utils.ReflectionUtils;
 
 public class Startup extends BroadcastReceiver {
@@ -31,6 +31,7 @@ public class Startup extends BroadcastReceiver {
         final String action = intent.getAction();
         if (action.equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
             Log.d(TAG, "ACTION_BOOT_COMPLETED Starting");
+
             ReflectionUtils.invokeMethod(context, "startServiceAsUser",
                 new Class[] {Intent.class, UserHandle.class
 
