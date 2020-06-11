@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 import android.util.Log;
-import org.lineageos.consumerirtransmitter.utils.ReflectionUtils;
 
 public class Startup extends BroadcastReceiver {
     private static final String TAG = "ConsumerirTransmitter";
@@ -30,14 +29,9 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         final String action = intent.getAction();
         if (action.equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
-            Log.d(TAG, "ACTION_BOOT_COMPLETED Starting");
-
-            ReflectionUtils.invokeMethod(context, "startServiceAsUser",
-                new Class[] {Intent.class, UserHandle.class
-
-                },
-                new Object[] {new Intent(context, ConsumerirTransmitterService.class),
-                    ReflectionUtils.getStaticAttribute("android.os.UserHandle", "CURRENT")});
+            Log.d(TAG, "Starting");
+            context.startServiceAsUser(
+                new Intent(context, ConsumerirTransmitterService.class), UserHandle.CURRENT);
         }
     }
 }
