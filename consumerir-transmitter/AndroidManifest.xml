@@ -31,7 +31,6 @@
 
         <service android:name=".ConsumerirTransmitterService"
             android:permission="ConsumeriTransmitterService"
-            android:exported="true"
             >
         </service>
 
