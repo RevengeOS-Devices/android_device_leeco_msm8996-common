@@ -106,6 +106,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.nohdcp=1 \
     persist.sys.wfd.virtual=0 \
     ro.persist.qcapb=1 \
+    ro.surface_flinger.supports_background_blur=1 \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
